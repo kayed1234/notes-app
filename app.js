@@ -2,6 +2,8 @@ const chalk = require('chalk')
 const yargs = require('yargs')
 const notes = require('./notes.js')
 
+const port = process.env.PORT || 3000
+
 // Customize yargs version
 yargs.version('1.1.0')
 
@@ -22,6 +24,7 @@ yargs.command({
         }
     },
     handler(argv) {
+        console.log("you are in ADD process!")
         notes.addNote(argv.title, argv.body)
     }
 })
@@ -67,4 +70,5 @@ yargs.command({
     }
 })
 
+console.log('Welcome!')
 yargs.parse()
